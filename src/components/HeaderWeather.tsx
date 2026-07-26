@@ -1,6 +1,8 @@
 import { useEffect, useMemo, useState } from 'react'
 import { warningIconUrl, weatherIconUrl } from '../services/hkoWeatherApi'
 import type { WeatherDisplay } from '../types/weather'
+import { useTranslation } from '../i18n/I18nContext'
+import { openHkoWeather } from '../utils/hkoLinks'
 
 const ROTATE_INTERVAL_MS = 10_000
 const FADE_DURATION_MS = 400
@@ -73,6 +75,7 @@ function IconSlideView({ slide }: { slide: IconSlide }) {
 }
 
 export function HeaderWeather({ display }: HeaderWeatherProps) {
+  const { locale, t } = useTranslation()
   const iconSlides = useMemo(
     () => (display ? buildIconSequence(display) : []),
     [display],
@@ -104,7 +107,13 @@ export function HeaderWeather({ display }: HeaderWeatherProps) {
   if (!display || (!activeSlide && temperature === null)) return null
 
   return (
-    <div className="header-weather" aria-live="polite">
+    <button
+      type="button"
+      className="header-weather btn-touch"
+      aria-live="polite"
+      aria-label={t('openHkoWeather')}
+      onClick={() => openHkoWeather(locale)}
+    >
       {activeSlide && (
         <div
           className={`header-weather__icon${fading ? ' header-weather__icon--fading' : ''}`}
@@ -115,6 +124,6 @@ export function HeaderWeather({ display }: HeaderWeatherProps) {
       {temperature !== null && (
         <span className="header-weather__temp">{temperature}°</span>
       )}
-    </div>
+    </button>
   )
 }

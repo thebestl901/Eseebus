@@ -41,7 +41,7 @@ export function RouteKeypad({ value, onChange, validKeys, suffixKeys }: RouteKey
   const clear = () => onChange('')
 
   return (
-    <div className={`keypad${smartActive ? ' keypad--smart' : ' keypad--full'}`}>
+    <div className={`keypad keypad--full${smartActive ? ' keypad--smart' : ''}`}>
       <div className="keypad__display" aria-live="polite">
         {value || t('keypadPlaceholder')}
       </div>

@@ -9,6 +9,7 @@ interface RouteMapProps {
   stops?: RouteStopPoint[]
   selectedSeq?: number | null
   height?: number
+  focusNonce?: number
   onStopSelect?: (seq: number) => void
 }
 
@@ -32,9 +33,11 @@ function FitBounds({ coordinates, enabled }: { coordinates: LatLngExpression[]; 
 function FocusStop({
   stop,
   mapHeight,
+  focusNonce,
 }: {
   stop: RouteStopPoint | null
   mapHeight?: number
+  focusNonce?: number
 }) {
   const map = useMap()
   useEffect(() => {
@@ -46,7 +49,7 @@ function FocusStop({
     }, 120)
 
     return () => window.clearTimeout(timer)
-  }, [map, stop?.seq, stop?.lat, stop?.lng, mapHeight])
+  }, [map, stop?.seq, stop?.lat, stop?.lng, mapHeight, focusNonce])
   return null
 }
 
@@ -59,7 +62,7 @@ function createStopIcon(seq: number, selected: boolean) {
   })
 }
 
-export function RouteMap({ stops = [], selectedSeq, height, onStopSelect }: RouteMapProps) {
+export function RouteMap({ stops = [], selectedSeq, height, focusNonce, onStopSelect }: RouteMapProps) {
   const plottedStops = useMemo(
     () =>
       stops.filter(
@@ -117,7 +120,7 @@ export function RouteMap({ stops = [], selectedSeq, height, onStopSelect }: Rout
           />
         ))}
         <FitBounds enabled={selectedSeq == null} coordinates={boundsCoordinates} />
-        <FocusStop stop={selectedStop} mapHeight={height} />
+        <FocusStop stop={selectedStop} mapHeight={height} focusNonce={focusNonce} />
         <InvalidateOnResize height={height} />
       </MapContainer>
     </div>

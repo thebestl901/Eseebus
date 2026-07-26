@@ -75,10 +75,14 @@ const zhTW = {
   loadGmbError: '無法載入專線小巴路線資料',
   loadNlbError: '無法載入新大嶼山巴士路線資料',
   loadMtrError: '無法載入港鐵巴士路線資料',
-  favoriteStop: '收藏此車站',
+  favoriteStop: '收藏車站',
   unfavoriteStop: '取消收藏',
   pinFavorite: '置頂收藏',
   walkToStop: '步行前往',
+  nearbyRoutes: '鄰近路線',
+  nearbyRoutesLoading: '載入鄰近路線…',
+  nearbyRoutesEmpty: '此站牌沒有其他路線',
+  nearbyRoutesError: '無法載入鄰近路線',
   towards: '往 {dest}',
   operatorKmb: '九巴',
   operatorCtb: '城巴',
@@ -153,6 +157,7 @@ const zhTW = {
   keypadPlaceholder: '輸入路線號碼',
   keypadBackspace: '退格',
   keypadClear: '清除',
+  openHkoWeather: '開啟香港天文台官網',
 } as const
 
 const zhCN: Record<TranslationKey, string> = {
@@ -228,10 +233,14 @@ const zhCN: Record<TranslationKey, string> = {
   loadGmbError: '无法加载专线小巴路线资料',
   loadNlbError: '无法加载新大屿山巴士路线资料',
   loadMtrError: '无法加载港铁巴士路线资料',
-  favoriteStop: '收藏此车站',
+  favoriteStop: '收藏车站',
   unfavoriteStop: '取消收藏',
   pinFavorite: '置顶收藏',
   walkToStop: '步行前往',
+  nearbyRoutes: '邻近路线',
+  nearbyRoutesLoading: '载入邻近路线…',
+  nearbyRoutesEmpty: '此站牌没有其他路线',
+  nearbyRoutesError: '无法载入邻近路线',
   towards: '往 {dest}',
   operatorKmb: '九巴',
   operatorCtb: '城巴',
@@ -306,7 +315,8 @@ const zhCN: Record<TranslationKey, string> = {
   keypadPlaceholder: '输入路线号码',
   keypadBackspace: '退格',
   keypadClear: '清除',
-}
+  openHkoWeather: '打开香港天文台官网',
+} as const
 
 const en: Record<TranslationKey, string> = {
   appName: 'ESee Bus',
@@ -382,10 +392,14 @@ const en: Record<TranslationKey, string> = {
   loadGmbError: 'Could not load GMB route data',
   loadNlbError: 'Could not load NLB route data',
   loadMtrError: 'Could not load MTR Bus route data',
-  favoriteStop: 'Save this stop',
+  favoriteStop: 'Save stop',
   unfavoriteStop: 'Remove from favorites',
   pinFavorite: 'Pin to top',
   walkToStop: 'Walk here',
+  nearbyRoutes: 'Nearby routes',
+  nearbyRoutesLoading: 'Loading nearby routes…',
+  nearbyRoutesEmpty: 'No other routes at this stop sign',
+  nearbyRoutesError: 'Could not load nearby routes',
   towards: 'To {dest}',
   operatorKmb: 'KMB',
   operatorCtb: 'Citybus',
@@ -460,6 +474,7 @@ const en: Record<TranslationKey, string> = {
   keypadPlaceholder: 'Enter route number',
   keypadBackspace: 'Backspace',
   keypadClear: 'Clear',
+  openHkoWeather: 'Open Hong Kong Observatory website',
 }
 
 const MESSAGES: Record<AppLocale, Record<TranslationKey, string>> = {

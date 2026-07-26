@@ -18,6 +18,16 @@ export function extractStopCode(name: string): string | null {
   return match ? match[1] : null
 }
 
+export function normalizeStopName(name: string): string {
+  return name.replace(/\s*\([A-Z0-9]+\)\s*$/, '').trim()
+}
+
+export function stopNamesMatch(a: string, b: string): boolean {
+  const left = normalizeStopName(a)
+  const right = normalizeStopName(b)
+  return left.length > 0 && left === right
+}
+
 export function formatEtaMinutes(eta: string | null): number | null {
   if (!eta) return null
   const etaDate = new Date(eta)
