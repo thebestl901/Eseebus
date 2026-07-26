@@ -1,7 +1,7 @@
 {
   "name": "eseebus",
   "private": true,
-  "version": "1.2.4",
+  "version": "1.2.5",
   "author": "TheBestopq",
   "type": "module",
   "scripts": {
